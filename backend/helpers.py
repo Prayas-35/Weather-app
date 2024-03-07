@@ -42,4 +42,4 @@ def lookup(city):
     else:
         return None
 
-print(lookup(input("City: ")))
+# print(lookup(input("City: ")))
