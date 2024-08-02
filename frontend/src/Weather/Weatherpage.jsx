@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { CircleLoader } from "react-spinners";
+
+
 
 export default function Weatherpage() {
   const [city, setCity] = useState("");
@@ -72,7 +75,12 @@ export default function Weatherpage() {
           </div>
         </div>
       ) : (
-        <div className="text-muted-foreground">Enter a city to get weather data</div>
+        <div className="text-muted-foreground"><CircleLoader
+        color="#663419"
+        loading
+        size={150}
+        speedMultiplier={1.5}
+      /></div>
       )}
     </div>
   );
