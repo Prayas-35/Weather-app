@@ -13,8 +13,23 @@ export default function Weatherpage() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/data?city=${city}`);
+      if (!city) {
+        setError("City is required");
+        return;
+      }
+      const response = await fetch(`http://127.0.0.1:5000/api/${city}`, {
+        method: 'POST'
+      });
+      if (!response.ok) {
+        setError("Network response was not ok");
+      }
+
       const data = await response.json();
+      console.log(data);
+      if (data.error) {
+        setError(data.error);
+        return;
+      }
       setWeatherData(data);
     } catch (error) {
       console.error("Error fetching weather data:", error);
