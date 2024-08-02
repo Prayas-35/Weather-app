@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div>
-      <h1>{data.message}</h1>
+      <h1 className='text-sm'>{data.message}</h1>
     </div>
   );
 }
