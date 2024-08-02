@@ -3,7 +3,7 @@ from flask_cors import CORS
 from helpers import lookup
 
 app = Flask(__name__)
-CORS(app, origins="http://127.0.0.1:5173")
+CORS(app, origins="*")
 
 @app.route('/api/data')
 def get_data():
