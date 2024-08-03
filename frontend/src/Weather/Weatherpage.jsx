@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { CircleLoader } from "react-spinners";
-import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import './Weatherpage.css';
 import ThemeToggle from "../../components/ThemeToggle";
 
@@ -9,15 +8,6 @@ export default function Weatherpage() {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [isDarkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDarkMode]);
 
   const fetchWeatherData = async () => {
     setLoading(true);
@@ -59,10 +49,6 @@ export default function Weatherpage() {
     fetchWeatherData();
   };
 
-  const toggleDarkMode = (checked) => {
-    setDarkMode(checked);
-  };
-
   return (
     <div
       // className={`flex flex-col h-screen ${isDarkMode ? "bg-background text-card-foreground" : "bg-background text-foreground"
@@ -71,13 +57,6 @@ export default function Weatherpage() {
       <header className="bg-card py-4 px-6 flex items-center justify-between shadow-md">
         <div className="flex items-center gap-4">
           <span className="text-2xl font-bold">Weather App</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <DarkModeSwitch
-            checked={isDarkMode}
-            onChange={toggleDarkMode}
-            size={30}
-          />
         </div>
         <div className="flex items-center gap-4">
           <ThemeToggle />

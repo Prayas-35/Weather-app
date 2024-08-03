@@ -35,7 +35,7 @@ def lookup(city):
             'humidity': response['main']['humidity'],
             'temperature': round(kelvin_to_celcius(response['main']['temp'])),
             'feels_like': round(kelvin_to_celcius(response['main']['feels_like'])),
-            'description': response['weather'][0]['description'],
+            'description': response['weather'][0]['description'].capitalize(),
             'wind_speed': response['wind']['speed'],
         }
     
