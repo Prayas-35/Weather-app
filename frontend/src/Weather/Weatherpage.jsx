@@ -72,13 +72,13 @@ export default function Weatherpage() {
         <div className="flex items-center gap-4">
           <span className="text-2xl font-bold">Weather App</span>
         </div>
-        <div className="flex items-center gap-4">
+        {/* <div className="flex items-center gap-4">
           <DarkModeSwitch
             checked={isDarkMode}
             onChange={toggleDarkMode}
             size={30}
           />
-        </div>
+        </div> */}
         <div className="flex items-center gap-4">
           <ThemeToggle />
         </div>
