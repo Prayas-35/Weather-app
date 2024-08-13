@@ -1,13 +1,10 @@
-import datetime as dt
 import requests
 import pycountry
+from dotenv import load_dotenv
+import os
 
-# url = "http://api.openweathermap.org/data/2.5/weather?APPID=544552592067b3cd93f36d645c9380cb"
-# CITY = "new york"
-# url = url + "&q=" + CITY
+load_dotenv()
 
-# response = requests.get(url).json()
-# print(response)
 def code_to_country(code):
     try:
         country = pycountry.countries.get(alpha_2=code.upper())
@@ -23,7 +20,8 @@ def kelvin_to_celcius(temp):
     return celcius
 
 def lookup(city):
-    url = "http://api.openweathermap.org/data/2.5/weather?APPID=544552592067b3cd93f36d645c9380cb"
+    APPID = os.getenv('WEATHER_API_KEY')
+    url = f"http://api.openweathermap.org/data/2.5/weather?APPID={APPID}"
     url = url + "&q=" + city
 
     response = requests.get(url).json()
